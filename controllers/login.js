@@ -23,10 +23,7 @@ module.exports = {
             date: new Date(),
           }, process.env.SECRETE_JWT_KEY, {
           });
-          response.setHeader('set-cookie', [
-            `${process.env.TOKEN_NAME}=${token}; SameSite=None;HttpOnly=true`,
-          ]);
-          res.cookie(process.env.TOKEN_NAME, token, { httpOnly: true, SameSite: 'none' });
+          res.cookie(process.env.TOKEN_NAME, token, { httpOnly: true, sameSite: 'none', secure: true });
           res.status(201).json({ message: "Patient has been logged in" })
         }
       } catch (error) {
@@ -57,7 +54,7 @@ module.exports = {
         }, process.env.SECRETE_JWT_KEY, {
 
         });
-        res.cookie(process.env.TOKEN_NAME, token, { httpOnly: true, domain: ".bookmyappointment1.herokuapp.com" });
+        res.cookie(process.env.TOKEN_NAME, token, { httpOnly: true, sameSite: "none", secure: true });
         res.send("Ho gaya").status(200)
 
       }
