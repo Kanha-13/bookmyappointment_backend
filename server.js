@@ -22,7 +22,7 @@ db.once("open", function () {
 
 
 //middlewares
-var whitelist = ['http://localhost:3000', /** other domains if any */]
+var whitelist = ['http://localhost:3000', "https://mydoctorapp-95b65.web.app", /** other domains if any */]
 var corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
