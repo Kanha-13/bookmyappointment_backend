@@ -23,7 +23,7 @@ module.exports = {
             date: new Date(),
           }, process.env.SECRETE_JWT_KEY, {
           });
-          res.cookie(process.env.TOKEN_NAME, token, { httpOnly: true, domain: ".bookmyappointment1.herokuapp.com" });
+          res.cookie(process.env.TOKEN_NAME, token, { httpOnly: true, domain: ".bookmyappointment1.herokuapp.com", sameSite: "none" });
           res.status(201).json({ message: "Patient has been logged in" })
         }
       } catch (error) {
